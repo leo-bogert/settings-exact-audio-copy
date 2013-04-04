@@ -10,6 +10,7 @@ fi
 
 if ! mount /mnt/cdrom ; then
 	notify-send --urgency=critical --category=device.error 'Starting Exact Audio copy failed!' 'You have to insert a data CDROM before starting EAC!'
+	exit 1
 fi
 
 WINEARCH=win32 wine ./.wine/drive_c/Program\ Files/Exact\ Audio\ Copy/EAC.exe
