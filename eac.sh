@@ -5,7 +5,7 @@ if ! source "lib-bash-leo.sh" ; then
 fi
 
 if ! umount /mnt/cdrom &> /dev/null ; then
-	# No error, just make sure it was not already mounted.
+	true # No error, just make sure it was not already mounted.
 fi
 
 if ! mount /mnt/cdrom ; then
