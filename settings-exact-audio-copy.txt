@@ -45,7 +45,7 @@ automatic)
 			command: kdesudo -u ripper konsole
 			work path: /home/ripper/
 		
-	now open the shell of ripper by clicking the icon you have created, and do:
+	open the shell of ripper by clicking the icon you have created, and do:
 		# initialize wine configuration - you don't have to configure anything, just click OK
 		WINEARCH=win32 winecfg
 		
@@ -92,14 +92,14 @@ automatic)
 			PATH="$PATH:$HOME/.bin/shell-tools:$HOME/.bin/settings-exact-audio-copy"
 			
 
-	now edit your icon which points to konsole to actually run EAC:
+	edit your icon which points to konsole to actually run EAC:
 		right click the konsole icon on your taskbar, select "icon settings":
 			application:
 				command: kdesudo -u ripper "bash -i -c \"eac.sh\""
 	
 		=> now you can start eac by clicking this icon.
 
-	now configure EAC according to "man EAC 2.4.txt". TODO: add to repository
+	configure EAC according to "man EAC 2.4.txt". TODO: add to repository
 	
 	wine ignores UMASK so we need to manually configure the permissions of the output folder of EAC:
 		# please enter the folder before executing those:
