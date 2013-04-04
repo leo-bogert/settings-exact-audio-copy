@@ -14,4 +14,6 @@ fi
 
 WINEARCH=win32 wine ./.wine/drive_c/Program\ Files/Exact\ Audio\ Copy/EAC.exe
 
-umount /mnt/cdrom
+if ! umount /mnt/cdrom &> /dev/null ; then
+	true # The kernel has probably already auto-unmounted it
+fi
