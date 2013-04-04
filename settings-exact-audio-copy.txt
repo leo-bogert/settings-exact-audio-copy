@@ -99,7 +99,7 @@ automatic)
 	
 		=> now you can start eac by clicking this icon.
 
-	now configure eac according to "man EAC 2.3.txt"
+	now configure EAC according to "man EAC 2.3.txt". TODO: add to repository
 	
 	wine ignores UMASK so we need to manually configure the permissions of the output folder of EAC:
 		# please enter the folder before executing those:
