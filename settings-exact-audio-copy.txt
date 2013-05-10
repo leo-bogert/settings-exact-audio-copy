@@ -1,4 +1,10 @@
 Exact Audio Copy:
+	These settings are designed for being usable for creating multiple ripper accounts (ripper1, ripper2, ...) - one for each CD-drive.
+	When you want to create the account ripperX instead of ripper1, replace:
+		- ripper1 with ripperX
+		- cdrom1 with cdromX
+		- sr0 with sr<X-1>
+	
 	Select: wine:amd64 (1.4-0ubuntu4.1)
 	Deselect because it is broken: gettext:i386
 	Install: libopenal1:i386 (1.13-4ubuntu3, automatic), libkrb5-3:i386 (1.10+dfsg~beta1-2ubuntu0.3, automatic), libk5crypto3:i386 (1.10+dfsg~beta1-2ubuntu0.3, automatic), libpam-winbind:amd64 (3.6.3-2ubuntu2.3, automatic), libstdc++6:i386 (4.6.3-1ubuntu5, automatic), libxfixes3:i386 (5.0-4ubuntu4, automatic), ttf-umefont:amd64 (434-1, automatic), libncurses5:i386 (5.9-4, automatic), libxcomposite1:i386 (0.4.3-2build1, automatic), libldap-2.4-2:i386 (2.4.28-1.1ubuntu4.1, automatic), fonts-horai-umefont:amd64 (434-1), libv4l-0:i386 (0.8.6-1ubuntu2, automatic), liblcms1:i386 (1.19.dfsg-1ubuntu3, automatic), libroken18-heimdal:i386 (1.6~git20120311.dfsg.1-2, automatic), libunistring0:amd64 (0.9.3-5, automatic), wine1.4-amd64:amd64 (1.4-0ubuntu4.1, automatic), libgphoto2-port0:i386 (2.4.13-1ubuntu1.2, automatic), libcomerr2:i386 (1.42-1ubuntu2, automatic), libglib2.0-data:amd64 (2.32.3-0ubuntu1, automatic), libselinux1:i386 (2.1.0-4.1ubuntu1, automatic), libjpeg-turbo8:i386 (1.1.90+svn733-0ubuntu4.1, automatic), 
