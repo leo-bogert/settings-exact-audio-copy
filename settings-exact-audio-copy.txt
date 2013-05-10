@@ -102,7 +102,7 @@ automatic)
 	
 		=> now you can start eac by clicking this icon.
 
-	configure EAC according to "man EAC 2.5pre.txt". TODO: add to repository
+	configure EAC according to "exact-audio-copy-configuration.txt".
 	
 	wine ignores UMASK so we need to manually configure the permissions of the output folder of EAC:
 		# please enter the folder before executing those:

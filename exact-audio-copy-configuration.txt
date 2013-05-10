@@ -1,0 +1,217 @@
+DESCRIPTION
+	Exact Audio Copy Settings for 'Test&Copy Image+CUE' mode. We want to make clean and perfect rips. We use the 'Test&Copy Image+CUE'-mode because it is the only compliant way to restore the extracted data later to an identical CDDA as far as audio data and TOC is concerned. Splitting to singletracks, encoding to FLAC and tagging with Musicbrainz is done later with more advanced tools that are designed for its specific purpose. 
+
+SOFTWARE NEEDED
+	Exact Audio Copy 1.0 beta 3 from www.exactaudiocopy.de
+	
+SETUP OPTIONS
+	SELECT COMPONENTS TO INSTALL
+		EAC = ON
+		freedb Metadata Plugin = ON
+		GD3 Metadata Plugin = OFF
+		CDRDAO = OFF
+		FLAC = OFF
+		AccurateRip = ON
+		CTDB Plugin = ON (Windows) / OFF (Wine, see BUGS for further information)
+
+FIRST TIME WIZARD:
+	Willkommen zum EAC Einstellungswizard […] = NEXT
+	EAC wird jetzt anfangen die CD-ROM Laufwerke zu konfigurieren […]
+		(select the drives you want to use for ripping) = NEXT
+	 EAC wird jetzt das folgende Laufwerk konfigurieren […]
+		Was soll für dieses Laufwerk gelten ?
+			Ich bevorzuge genaue Ergebnisse = SELECTED => NEXT
+	EAC hat dieses Laufwerk in seiner internen Datenbank gefunden […] (safe the listed features)
+		Versuche selbst die Eigenschaften meines Laufwerks zu erkennen = SELECTED => NEXT
+	EAC wird nun die Laufwerkseigenschaften erkennen  […] (insert audio CD and wait until 'Configure AccurateRip' will popup. Click on CONFIGURE in the 'Configure Accuraterip' popup. wait. 'AccurateRip' will popup with 'Congratulations, Accuraterip has been set up correctly'. Click OK. If not, buy another drive.) => NEXT
+	(Autoerkennung is now testing your drive and will display the results when finished.) Compare to the features of the Database. If it matches click NEXT, otherwise buy another drive
+	Herzlichen Glückwunsch => NEXT
+	Anhängig von den Bedürfnissen […] => NEXT
+	Encoder Selection: nothing right now, i will configure it later manually
+	E-Mail: anonymous@anonymous.anonymous
+	Filename Configuration: Leave naming scheme unchanged
+	Done: I am an expert, let me use the full potential of EAC
+
+OPTIONS
+	EAC OPTIONS
+
+		EXTRACTION
+			Fill up missing offset samples with silence = ON
+			Synchronize between tracks = ON
+			Delete leading and trailing silent blocks = OFF
+			Skip track extraction on read or sync errors = OFF
+			Skip track extraction after duration longer than 10 times realtime = ON
+			After each (n) mins of extraction, cool down the drive for (n) minutes = OFF
+			Lock drive tray during extraction = ON
+			Extraction and compression priority = NORMAL
+			Error recovery quality = HIGH
+
+		GENERAL
+			Use alternate CD play routines = ON
+			Disable 'CD Autostart' for audio and data CDs while EAC running = ON
+			On unknown CDs = ON
+				automatically access online metadata database = SELECTED
+			Display times using frames = ON
+			Ask before overwriting files = ON
+			Correct bug of wrong filename order in Windows multiple file dialog = ON
+			Show status dialog after extraction = ON
+			Beep after extraction finished = ON
+			Eject CD after extraction finished = ON
+			On extraction offer the possibility to hibernate computer = SELECTED
+				wait for external compressors = ON
+			Use language = English
+				Create log files always in english language = ON
+
+		TOOLS
+			Retrieve UPC/ISRC codes in CUE sheet generation = ON
+			Use CD-Text information in CUE sheet generation = ON
+			Create 'm3u' playlist on extraction = OFF
+			Automatically write status report after extraction = ON
+			Append checksum to status report = ON
+			Convert BMP image files automatically to JPG = OFF
+			On extraction, start external compressors queued in background = OFF
+			Do not open external compressor window = OFF
+			Submit drive features after detection (but ask for permission) = ON
+			Activate beginner mode, disable all advanced features = OFF
+ 
+		NORMALIZE
+			Normalize = OFF
+
+		FILENAME
+			Naming scheme: %albumartist% - %year% - %albumtitle%\%tracknr2% - %title%
+			Use various artist naming scheme = ON
+				%albumartist% - %year% - %albumtitle%\%tracknr2% - %artist% - %title%
+			Replace spaces by underscores = OFF
+
+		CHARACTER REPLACEMENTS (most of these characters are allowed in UNIX filenames, we replace all of them to achieve maximum Windows and Samba compatibility)
+			" = _
+			\ = _
+			/ = _
+			: = _
+			* = _
+			? = _
+			< = _
+			> = _
+			| = _
+
+		CATALOG
+			(leave at default values)
+
+		DIRECTORIES
+			C:\PRO-RIP\ (Use a Directory that contains no personal information as this path is printed in the LOG file)
+
+		WRITE
+			Upper all characters (on writing) = OFF
+			Include artist in the CD-Text track title (on writing) = OFF
+			Disable copy protection flag on adding audio files to the layout editor by default = OFF
+
+		INTERFACE
+			Under Windows:
+				Native Win32 interface for XP/Vista/Win 7 = SELECTED
+			Under WINE:
+				Native Win32 interface for XP/Vista/Win 7 = SELECTED 
+					ADDITIONAL LINUX INFORMATION:
+						Create a new fstab entry under /etc/fstab and make sure your user is in the 'cdrom' group
+							/dev/cdrom /mnt/cdrom auto noauto,ro,user 0 0
+						Before starting EAC (everytime) insert any data-CD and mount it:
+							mount /mnt/cdrom
+						Now start EAC, then eject the data-CD and insert the CDDA you want to rip (while leaving EAC open)
+
+		AUDIO PLUGINS
+			None
+
+	DRIVE OPTIONS
+	
+		EXTRACTION METHOD
+			Secure mode = SELECTED
+				Drive has 'Accurate Stream' feature = Select according to your Drive's specs (
+				Drive caches audio data = ON (this flushes the cache of your drive, otherwise rereading is useless, because it rereads from cache. To my experience it does not hurt to leave this always ON, even if your drive has no cache)
+				Drive is capable of retrieving C2 error information = OFF (Even if your Drive is capable of retrieving C2 error information. Slows down the ripping process but it's not 100% safe to use this feature with EAC)
+
+		DRIVE
+			Drive read command
+				Autodetect read command = SELECTED
+			'Big Endian' byte order (Motorola) = OFF
+			Swap channels = OFF
+			Spin up drive before extraction = ON
+			CD-Text Read capable drive = ON (if your drive is capable of doing so)
+
+		OFFSET / SPEED
+			Use read sample offset correction
+				(should be configured automatically by Accuraterip once a known CD was inserted)
+			Overread into Lead-In and Lead-Out = ON (if Drive is capable of doing so)
+			Speed selection
+				Current = SELECTED
+			Allow speed reduction during extraction = ON
+			Use Accuraterip with this drive = ON
+
+		GAP DETECTION
+			Gap/Index retrieval method = (you might need to change this individually for certain CDs if it freezes during detection. The method has nothing to do with its accuracy. The important thing is to set the following option right)
+			Detection accuracy
+				SECURE = SELECTED
+
+		WRITER
+			Write samples offset = set according to your drive's specs
+			After burning finished
+				only eject CD-R = selected
+			Drive is able to write UPC/ISRC = ON (if drive is capable of doing so)
+			Drive is able to write CD-Text = ON (if drive is capable of doing so)
+
+	COMPRESSION OPTIONS
+
+		WAVEFORM
+			Waveform
+				Under Windows
+					Microsoft PCM Converter = SELECTED
+				Under Wine
+					WINE PCM Converter = SELECTED
+			Sample format
+				44100; 16bits; Stereo = SELECTED
+					High quality = SELECTED
+			Add ID3 Tag = OFF
+			Do not write WAV header to file = OFF
+
+		EXTERNAL COMPRESSION
+			Use external program for compression = OFF
+
+		COMMENT
+			Write the following text into ID3 tag comment field = SELECTED (remove all characters in the textbox below)
+
+		ID3 TAG
+			Write ID3 V1 tags = OFF
+			Write ID3 V2 tags, using a padding of = OFF
+			Use ID3V1.1 tags instead of ID3V1.0 tags = (leave at default setting)
+			Use ID3V2.4.0. tags instead of ID3V2.3.0 tags = (leave at default setting)
+			Use track format xx/xx in ID3V2 tags(e.g. 01/16) = (leave at default setting)
+			Use unsynchronization scheme in ID3V2 tags = (leave at default setting)
+			Write ID3V2 tags using UTF16 = (leave at default setting)
+			Add cover image to ID3V2 tag = OFF
+			Write cover image into extraction folder
+				Naming scheme: Cover.jpg
+
+	METADATA OPTIONS
+
+		METADATA PROVIDER
+			Selected metadata provider = build-in freedb engine
+
+		FREEDB
+			(click on 'Get active freedb server list' first)
+			Your e-mail address = anonymous@anonymous.anonymous
+			Freedb Server = http://freedb.musicbrainz.org:80/~cddb/cddb.cgi
+			Use Proxy Server for HTTP access = OFF
+			On a connection error, retry query using a different server from the list = OFF
+		
+		EXPORT
+			(leave at default settings)
+
+TODO
+	Check if WINE PCM Converter is is bugfree
+
+BUGS
+	CTDB Plugin does not work under WINE
+	
+VERSION
+	2.5pre
+
+AUTHOR
+	Benjamin von der Weiden <benjamin@von-der-weiden.com>, Leo Bogert <leo@bogert.de>
