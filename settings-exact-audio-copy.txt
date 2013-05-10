@@ -92,8 +92,26 @@ automatic)
 		WINEARCH=win32 regsvr32 "./.wine/drive_c/Program Files/Exact Audio Copy/sqlceca35.dll"
 		WINEARCH=win32 regsvr32 "./.wine/drive_c/Program Files/Exact Audio Copy/sqlceoledb35.dll"
 		
+		# initialize gpg settings
+		gpg --list-keys
+		# download code signing key of leo:
+		gpg --recv-key 15173ECBBC720C9EF4205805B26BE43E4B5EAD69
+		
 		git clone https://github.com/leo-bogert/shell-tools ~/.bin/shell-tools
+		cd ~/.bin/shell-tools
+		# now we find out what the latest version is:
+		git tag --list
+		# we verify the gnupg tag of that version and check out that version:
+		git verify-tag <latest version tag>
+		git checkout <latest version tag>
+	
 		git clone https://github.com/leo-bogert/settings-exact-audio-copy ~/.bin/settings-exact-audio-copy
+		cd ~/.bin/settings-exact-audio-copy
+		# now we find out what the latest version is:
+		git tag --list
+		# we verify the gnupg tag of that version and check out that version:
+		git verify-tag <latest version tag>
+		git checkout <latest version tag>
 		
 		cp -ai .bashrc .bashrc.default
 		nano .bashrc
