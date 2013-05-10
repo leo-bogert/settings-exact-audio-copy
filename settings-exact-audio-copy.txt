@@ -14,52 +14,55 @@ automatic)
 	Install: desktop-file-utils:amd64 (0.20-0.1ubuntu1)
 	
 	sudo -i
-		chgrp cdrom /dev/cdrom
-
+		useradd --create-home --shell /bin/bash --user-group ripper1
+		passwd -l ripper1
+		usermod -a -G ripper1 leo
+		chmod -R g+w /home/ripper1
+		chmod g+s /home/ripper1
+		
 		cp -ai /etc/fstab /etc/fstab.default
 		nano /etc/fstab
-			/dev/cdrom /mnt/cdrom auto noauto,ro,user 0 0 
+			/dev/sr0 /mnt/cdrom1 auto noauto,ro,user 0 0
 
-		mkdir /mnt/cdrom
-		chgrp cdrom /mnt/cdrom
-
-		useradd --create-home --shell /bin/bash --user-group --groups cdrom ripper
-		passwd -l ripper
-		usermod -a -G ripper leo
-		chmod -R g+w /home/ripper
-		chmod g+s /home/ripper
+		mkdir /mnt/cdrom1
+		chgrp ripper1 /mnt/cdrom1
 		
-		nano /etc/sudoers.d/ripper
-			leo     ALL=(ripper)       NOPASSWD: ALL
+		nano /etc/sudoers.d/ripper1
+			leo     ALL=(ripper1)       NOPASSWD: ALL
 		chmod 440 /etc/sudoers.d/*
 		
-	re-login your main user to make your that adding yourself to the "ripper" group has an effect and you can access the home directory of ripper.
+		nano /etc/udev/rules.d/99-cd.rules
+			KERNEL=="sr0", GROUP="ripper1"
+			
+		chmod 644 /etc/udev/rules.d/99-cd.rules
+		
+	reboot now.
 
-	add an icon for opening a shell as ripper to your taskbar:
+	add an icon for opening a shell as ripper1 to your taskbar:
 		go to kde menu, search for "konsole", right click it, select "add to panel" (only available if your desktop widgets are unlocked, rightclick your desktop to do this-)
 		right click the konsole icon on your taskbar, select "icon settings":
 		general:
-			(name): "ripper"
+			(name): "ripper1"
 		application:
-			name: ripper
-			command: kdesudo -u ripper konsole
-			work path: /home/ripper/
+			name: ripper1
+			command: kdesudo -u ripper1 konsole
+			work path: /home/ripper1/
 		
-	open the shell of ripper by clicking the icon you have created, and do:
+	open the shell of ripper1 by clicking the icon you have created, and do:
 		# initialize wine configuration - you don't have to configure anything, just click OK
 		WINEARCH=win32 winecfg
 		
 		# install .NET 2 for the freedb plugin of EAC:
 			WINEARCH=win32 winetricks dotnet20sp2
 			
-			# a browser window will open showing "/home/ripper/.cache/winetricks/dotnet20/", close that.
+			# a browser window will open showing "/home/ripper1/.cache/winetricks/dotnet20/", close that.
 			# then a browser window will be opened which shows a download, and the terminal will tell you what to do:
-			# "Please download dotnetfx.exe from http://download.cnet.com/Microsoft-NET-Framework-Redistributable-Package-x86/3000-10250_4-10726028.html, place it in /home/ripper/.cache/winetricks/dotnet20, then re-run this script."
+			# "Please download dotnetfx.exe from http://download.cnet.com/Microsoft-NET-Framework-Redistributable-Package-x86/3000-10250_4-10726028.html, place it in /home/ripper1/.cache/winetricks/dotnet20, then re-run this script."
 			# cnet.com is a pretty shitty site which is known to spread spyware etc so please validate the sha256sum:
 			sha256sum --check --strict <<< '46693d9b74d12454d117cc61ff2e9481cabb100b4d74eb5367d3cf88b89a0e71 *dotnetfx.exe'
 			
 			# install it now. notice: there will be two setups, the second is the service pack. when asked whether to restart the computer, select restart later. you don't have to reboot.
-			mv dotnetfx.exe "/home/ripper/.cache/winetricks/dotnet20/"
+			mv dotnetfx.exe "/home/ripper1/.cache/winetricks/dotnet20/"
 			WINEARCH=win32 winetricks dotnet20sp2
 		
 		# install EAC
@@ -95,7 +98,7 @@ automatic)
 	edit your icon which points to konsole to actually run EAC:
 		right click the konsole icon on your taskbar, select "icon settings":
 			application:
-				command: kdesudo -u ripper "bash -i -c \"eac.sh\""
+				command: kdesudo -u ripper1 "bash -i -c \"eac.sh\""
 	
 		=> now you can start eac by clicking this icon.
 
@@ -103,6 +106,6 @@ automatic)
 	
 	wine ignores UMASK so we need to manually configure the permissions of the output folder of EAC:
 		# please enter the folder before executing those:
-		# chgrp leo /home/ripper/.wine/drive_c/OUTPUT_FOLDER_OF_EAC
-		# chmod g+ws /home/ripper/.wine/drive_c/OUTPUT_FOLDER_OF_EAC
+		# chgrp leo /home/ripper1/.wine/drive_c/OUTPUT_FOLDER_OF_EAC
+		# chmod g+ws /home/ripper1/.wine/drive_c/OUTPUT_FOLDER_OF_EAC
 		
