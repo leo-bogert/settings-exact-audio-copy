@@ -33,13 +33,13 @@ FIRST TIME WIZARD
 			I don't trust these values, detect the features for my drive = SELECTED
 
 				AUTODETECTION 
-					(Insert any genuinely pressed audio CD (the more popular the title is the better) and wait until 'CONFIGURE ACCURATERIP' will popup. Click on 'configure' in the 'CONFIGURE ACCURATERIP' popup. Wait. 'AccurateRip' will popup with 'Congratulations, AccurateRip has been set up correctly'. Click 'OK'. If it is returns an error, abort and try with a different disc, then with a different drive.)
+					(Insert any genuinely pressed audio CD (the more popular the title the better) and wait until 'CONFIGURE ACCURATERIP' will popup. Click on 'configure' in the 'CONFIGURE ACCURATERIP' popup. Wait. 'AccurateRip' will popup with 'Congratulations, AccurateRip has been set up correctly'. Click 'OK'. If it returns an error, abort and try with a different disc, then with a different drive.)
 					(Let it detect everything)
 					(Compare detected settings with the settings you saved before, if it doesn't match, try again with a different disc. Note that caching detection is not reliable. If you get mismatches with the settings you saved before repeatedly, go back and proceed with features from database. Read the 'Extraction Method'-section under 'Drive Options' in this manual carefully later)
 	
 	(If your drive was not found in EACs drive feature database:)
 		AUTODETECTION
-			(Insert any genuinely pressed audio CD (the more popular the title is the better) and wait until 'CONFIGURE ACCURATERIP' will popup. Click on 'configure' in the 'CONFIGURE ACCURATERIP' popup. Wait. 'AccurateRip' will popup with 'Congratulations, AccurateRip has been set up correctly'. Click 'OK'. If it is returns an error, abort and try with a different disc, then with a different drive.)
+			(Insert any genuinely pressed audio CD (the more popular the title the better) and wait until 'CONFIGURE ACCURATERIP' will popup. Click on 'configure' in the 'CONFIGURE ACCURATERIP' popup. Wait. 'AccurateRip' will popup with 'Congratulations, AccurateRip has been set up correctly'. Click 'OK'. If it returns an error, abort and try with a different disc, then with a different drive.)
 			(Let it detect everything)
 			(Note that caching detection is not reliable. If only caching detection mismatches repeatedly, proceed anyway. Read the 'EXTRACTION METHOD'-section under 'DRIVE OPTIONS' in this manual carefully later)
 
@@ -227,7 +227,7 @@ BUGS
 	CTDB Plugin does not work under WINE
 	
 VERSION
-	3.2
+	3.3
 
 AUTHOR
 	Benjamin von der Weiden <benjamin@pro-rip.org>, Leo Bogert <leo@pro-rip.org>
