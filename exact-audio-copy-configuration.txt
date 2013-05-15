@@ -33,15 +33,15 @@ FIRST TIME WIZARD
 			I don't trust these values, detect the features for my drive = SELECTED
 
 				AUTODETECTION 
-					(Insert any genuinely pressed audio CD (the more popular the title is the better) and wait until 'Configure AccurateRip' will popup. Click on CONFIGURE in the 'Configure AccurateRip' popup. Wait. 'AccurateRip' will popup with 'Congratulations, AccurateRip has been set up correctly'. Click 'OK'. If it is returns an error, abort and try with a different disc, then with a different drive.)
+					(Insert any genuinely pressed audio CD (the more popular the title is the better) and wait until 'CONFIGURE ACCURATERIP' will popup. Click on 'configure' in the 'CONFIGURE ACCURATERIP' popup. Wait. 'AccurateRip' will popup with 'Congratulations, AccurateRip has been set up correctly'. Click 'OK'. If it is returns an error, abort and try with a different disc, then with a different drive.)
 					(Let it detect everything)
 					(Compare detected settings with the settings you saved before, if it doesn't match, try again with a different disc. Note that caching detection is not reliable. If you get mismatches with the settings you saved before repeatedly, go back and proceed with features from database. Read the 'Extraction Method'-section under 'Drive Options' in this manual carefully later)
 	
 	(If your drive was not found in EACs drive feature database:)
 		AUTODETECTION
-			(Insert any genuinely pressed audio CD (the more popular the title is the better) and wait until 'Configure AccurateRip' will popup. Click on CONFIGURE in the 'Configure AccurateRip' popup. Wait. 'AccurateRip' will popup with 'Congratulations, AccurateRip has been set up correctly'. Click 'OK'. If it is returns an error, abort and try with a different disc, then with a different drive.)
+			(Insert any genuinely pressed audio CD (the more popular the title is the better) and wait until 'CONFIGURE ACCURATERIP' will popup. Click on 'configure' in the 'CONFIGURE ACCURATERIP' popup. Wait. 'AccurateRip' will popup with 'Congratulations, AccurateRip has been set up correctly'. Click 'OK'. If it is returns an error, abort and try with a different disc, then with a different drive.)
 			(Let it detect everything)
-			(Note that caching detection is not reliable. If only caching detection mismatches repeatedly, proceed anyway. Read the 'Extraction Method'-section under 'Drive Options' in this manual carefully later)
+			(Note that caching detection is not reliable. If only caching detection mismatches repeatedly, proceed anyway. Read the 'EXTRACTION METHOD'-section under 'DRIVE OPTIONS' in this manual carefully later)
 
 	(Repeat the wizard for all drives you want to use for ripping)
 
@@ -144,7 +144,7 @@ OPTIONS
 		EXTRACTION METHOD
 			Secure mode = SELECTED
 				Drive has 'Accurate Stream' feature = Select according to your drive's specs
-				Drive caches audio data = ON (This flushes the cache of your drive, otherwise rereading is useless, because it rereads from cache. To my experience it does not hurt to leave this always ON, even if your drive has no cache. Set to ON if detection during 'First Time Wizard' was unreliable)
+				Drive caches audio data = ON (This flushes the cache of your drive, otherwise rereading is useless, because it rereads from cache. To my experience it does not hurt to leave this always ON, even if your drive has no cache. Set to ON if detection during 'FIRST TIME WIZARD' was unreliable)
 				Drive is capable of retrieving C2 error information = OFF (Even if your drive is capable of retrieving C2 error information. Slows down the ripping process but it's not 100% safe to use this feature with EAC)
 
 		DRIVE
@@ -157,7 +157,7 @@ OPTIONS
 
 		OFFSET / SPEED
 			Use read sample offset correction
-				(Should be already configured automatically by AccurateRip during the 'First Time Wizard' process)
+				(Should be already configured automatically by AccurateRip during the 'FIRST TIME WIZARD' process)
 			Overread into Lead-In and Lead-Out = ON (if your drive is capable of doing so)
 			Speed selection
 				Current = SELECTED
@@ -227,7 +227,7 @@ BUGS
 	CTDB Plugin does not work under WINE
 	
 VERSION
-	3.0
+	3.1
 
 AUTHOR
 	Benjamin von der Weiden <benjamin@pro-rip.org>, Leo Bogert <leo@pro-rip.org>
