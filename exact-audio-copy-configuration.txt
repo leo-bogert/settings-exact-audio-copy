@@ -1,5 +1,5 @@
 DESCRIPTION
-	'Exact Audio Copy' settings for 'Test&Copy Image+CUE'-mode. We want to make clean and perfect rips. We use the 'Test&Copy Image+CUE'-mode because it is the only compliant way to restore the extracted data later to an identical CDDA as far as audio data and TOC is concerned. Splitting to singletracks, encoding to FLAC and tagging using Musicbrainz database is done later with more advanced tools that are designed for its specific purpose. 
+	'Exact Audio Copy' settings for 'Test&Copy Image+CUE'-mode. We want to make clean and perfect rips. We use the 'Test&Copy Image+CUE'-mode because it is the only compliant way to restore the extracted data later to an identical audio CD as far as audio data and TOC is concerned. Splitting to singletracks, encoding to FLAC and tagging using the 'Musicbrainz' database is done later with more advanced tools that are designed for its specific purpose. 
 
 SOFTWARE NEEDED
 	Exact Audio Copy 1.0 beta 3 from www.exactaudiocopy.de
@@ -227,7 +227,7 @@ BUGS
 	CTDB Plugin does not work under WINE
 	
 VERSION
-	2.9
+	3.0
 
 AUTHOR
-	Benjamin von der Weiden <benjamin@von-der-weiden.com>, Leo Bogert <leo@bogert.de>
+	Benjamin von der Weiden <benjamin@pro-rip.org>, Leo Bogert <leo@pro-rip.org>
