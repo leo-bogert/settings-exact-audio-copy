@@ -113,6 +113,7 @@ automatic)
 		git verify-tag <latest version tag>
 		git checkout <latest version tag>
 		
+		cd
 		cp -ai .bashrc .bashrc.default
 		nano .bashrc
 			# append to end of file:
