@@ -7,12 +7,12 @@ SOFTWARE NEEDED
 SETUP OPTIONS
 	SELECT COMPONENTS TO INSTALL
 		EAC = ON
-		freedb Metadata Plugin = ON
+		freedb Metadata Plugin = OFF
 		GD3 Metadata Plugin = OFF
 		CDRDAO = OFF
 		FLAC = OFF
 		AccurateRip = ON
-		CTDB Plugin = ON (Windows) / OFF (Wine, see BUGS for further information)
+		CTDB Plugin = OFF (see BUGS for further information)
 
 FIRST TIME WIZARD
 	WELCOME
@@ -27,21 +27,23 @@ FIRST TIME WIZARD
 	FEATURE DETECTION
 		(nothing to select)
 
-	(if Drive was found in EACs drive feature database:)
+	(if Drive was found in EAC's drive feature database:)
 		FEATURE DATABASE
 			(save the features listed under your drive's name)
 			I don't trust these values, detect the features for my drive = SELECTED
 
 				AUTODETECTION 
+					(insert audio CD from this list: http://www.accuraterip.com/keydiscs.htm and wait until 'Configure AccurateRip' will popup. Click on CONFIGURE in the 'Configure AccurateRip' popup. Wait. 'AccurateRip' will popup with 'Congratulations, AccurateRip has been set up correctly'. Click 'OK'. If it is returns an error, abort and try with a different key disc, then with a different drive.)
 					(let it detect everything)
-					(Compare detected settings with the settings you saved before, if it doesn't match try again with a different Disc. Note that caching detection is not reliable. If only Caching detection mismatches repeatedly, proceed anyway. Read the 'Extraction Method'-section under 'Drive Options' in this manual carefully later)
+					(Compare detected settings with the settings you saved before, if it doesn't match, try again with a different Disc. Note that caching detection is not reliable. If only caching detection mismatches repeatedly, go back and proceed with features from database. Read the 'Extraction Method'-section under 'Drive Options' in this manual carefully later)
 	
 	(if Drive was not found in EACs drive feature database:)
-		AUTODETECTION 
+		AUTODETECTION
+			(insert audio CD from this list: http://www.accuraterip.com/keydiscs.htm and wait until 'Configure AccurateRip' will popup. Click on CONFIGURE in the 'Configure AccurateRip' popup. Wait. 'AccurateRip' will popup with 'Congratulations, AccurateRip has been set up correctly'. Click 'OK'. If it is returns an error, abort and try with a different key disc, then with a different drive.)
 			(let it detect everything)
-			(Note that caching detection is not reliable. If only Caching detection mismatches repeatedly, proceed anyway. Read the 'Extraction Method'-section under 'Drive Options' in this manual carefully later)
+			(Note that caching detection is not reliable. If only caching detection mismatches repeatedly, proceed anyway. Read the 'Extraction Method'-section under 'Drive Options' in this manual carefully later)
 
-	(repeat the 'extraction preferences' settings for all drives)
+	(repeat the wizard for all drives that are selected for ripping)
 
 	DRIVE RATING
 		(nothing to select)
@@ -132,10 +134,7 @@ OPTIONS
 			Disable copy protection flag on adding audio files to the layout editor by default = OFF
 
 		INTERFACE
-			Under Windows:
-				Native Win32 interface for XP/Vista/Win 7 = SELECTED
-			Under WINE:
-				Native Win32 interface for XP/Vista/Win 7 = SELECTED
+			Native Win32 interface for XP/Vista/Win 7 = SELECTED
 
 		AUDIO PLUGINS
 			None
@@ -158,12 +157,12 @@ OPTIONS
 
 		OFFSET / SPEED
 			Use read sample offset correction
-				(should be configured automatically by Accuraterip once a known CD was inserted)
+				(should be configured automatically by AccurateRip once a key disc was inserted)
 			Overread into Lead-In and Lead-Out = ON (if Drive is capable of doing so)
 			Speed selection
 				Current = SELECTED
 			Allow speed reduction during extraction = ON
-			Use Accuraterip with this drive = ON
+			Use AccurateRip with this drive = ON
 
 		GAP DETECTION
 			Gap/Index retrieval method = (you might need to change this individually for certain CDs if it freezes during detection. The method has nothing to do with its accuracy. The important thing is to set the following option right)
@@ -228,7 +227,7 @@ BUGS
 	CTDB Plugin does not work under WINE
 	
 VERSION
-	2.6
+	2.8
 
 AUTHOR
 	Benjamin von der Weiden <benjamin@von-der-weiden.com>, Leo Bogert <leo@bogert.de>
