@@ -14,23 +14,49 @@ SETUP OPTIONS
 		AccurateRip = ON
 		CTDB Plugin = ON (Windows) / OFF (Wine, see BUGS for further information)
 
-FIRST TIME WIZARD:
-	Willkommen zum EAC Einstellungswizard […] = NEXT
-	EAC wird jetzt anfangen die CD-ROM Laufwerke zu konfigurieren […]
-		(select the drives you want to use for ripping) = NEXT
-	 EAC wird jetzt das folgende Laufwerk konfigurieren […]
-		Was soll für dieses Laufwerk gelten ?
-			Ich bevorzuge genaue Ergebnisse = SELECTED => NEXT
-	EAC hat dieses Laufwerk in seiner internen Datenbank gefunden […] (safe the listed features)
-		Versuche selbst die Eigenschaften meines Laufwerks zu erkennen = SELECTED => NEXT
-	EAC wird nun die Laufwerkseigenschaften erkennen  […] (insert audio CD and wait until 'Configure AccurateRip' will popup. Click on CONFIGURE in the 'Configure Accuraterip' popup. wait. 'AccurateRip' will popup with 'Congratulations, Accuraterip has been set up correctly'. Click OK. If not, buy another drive.) => NEXT
-	(Autoerkennung is now testing your drive and will display the results when finished.) Compare to the features of the Database. If it matches click NEXT, otherwise buy another drive
-	Herzlichen Glückwunsch => NEXT
-	Anhängig von den Bedürfnissen […] => NEXT
-	Encoder Selection: nothing right now, i will configure it later manually
-	E-Mail: anonymous@anonymous.anonymous
-	Filename Configuration: Leave naming scheme unchanged
-	Done: I am an expert, let me use the full potential of EAC
+FIRST TIME WIZARD
+	WELCOME
+		(nothing to select)
+
+	CD-ROM SELECTION
+		(select the drives you want to use for ripping)
+
+	EXTRACTION PREFERENCES
+		I prefer to have accurate results = SELECTED
+
+	FEATURE DETECTION
+		(nothing to select)
+
+	(if Drive was found in EACs drive feature database:)
+		FEATURE DATABASE
+			(save the features listed under your drive's name)
+			I don't trust these values, detect the features for my drive = SELECTED
+
+				AUTODETECTION 
+					(let it detect everything)
+					(Compare detected settings with the settings you saved before, if it doesn't match try again with a different Disc. Note that caching detection is not reliable. If only Caching detection mismatches repeatedly, proceed anyway. Read the 'Extraction Method'-section under 'Drive Options' in this manual carefully later)
+	
+	(if Drive was not found in EACs drive feature database:)
+		AUTODETECTION 
+			(let it detect everything)
+			(Note that caching detection is not reliable. If only Caching detection mismatches repeatedly, proceed anyway. Read the 'Extraction Method'-section under 'Drive Options' in this manual carefully later)
+
+	(repeat the 'extraction preferences' settings for all drives)
+
+	DRIVE RATING
+		(nothing to select)
+
+	ENCODER SELECTION
+		nothing right now, i will configure it later manually = SELECTED
+
+	FREEDB CONFIGURATION
+		anonymous@anonymous.anonymous
+
+	FILENAME CONFIGURATION
+		Leave naming scheme unchanged = SELECTED
+
+	DONE
+		I am an expert, let me use the full potential of EAC = SELECTED
 
 OPTIONS
 	EAC OPTIONS
@@ -109,13 +135,7 @@ OPTIONS
 			Under Windows:
 				Native Win32 interface for XP/Vista/Win 7 = SELECTED
 			Under WINE:
-				Native Win32 interface for XP/Vista/Win 7 = SELECTED 
-					ADDITIONAL LINUX INFORMATION:
-						Create a new fstab entry under /etc/fstab and make sure your user is in the 'cdrom' group
-							/dev/cdrom /mnt/cdrom auto noauto,ro,user 0 0
-						Before starting EAC (everytime) insert any data-CD and mount it:
-							mount /mnt/cdrom
-						Now start EAC, then eject the data-CD and insert the CDDA you want to rip (while leaving EAC open)
+				Native Win32 interface for XP/Vista/Win 7 = SELECTED
 
 		AUDIO PLUGINS
 			None
@@ -125,7 +145,7 @@ OPTIONS
 		EXTRACTION METHOD
 			Secure mode = SELECTED
 				Drive has 'Accurate Stream' feature = Select according to your Drive's specs (
-				Drive caches audio data = ON (this flushes the cache of your drive, otherwise rereading is useless, because it rereads from cache. To my experience it does not hurt to leave this always ON, even if your drive has no cache)
+				Drive caches audio data = ON (this flushes the cache of your drive, otherwise rereading is useless, because it rereads from cache. To my experience it does not hurt to leave this always ON, even if your drive has no cache. Set to ON if detection during First Time Wizard was unreliable)
 				Drive is capable of retrieving C2 error information = OFF (Even if your Drive is capable of retrieving C2 error information. Slows down the ripping process but it's not 100% safe to use this feature with EAC)
 
 		DRIVE
@@ -187,7 +207,7 @@ OPTIONS
 			Write ID3V2 tags using UTF16 = (leave at default setting)
 			Add cover image to ID3V2 tag = OFF
 			Write cover image into extraction folder
-				Naming scheme: Cover.jpg
+				Naming scheme: cover.jpg
 
 	METADATA OPTIONS
 
@@ -204,14 +224,11 @@ OPTIONS
 		EXPORT
 			(leave at default settings)
 
-TODO
-	Check if WINE PCM Converter is is bugfree
-
 BUGS
 	CTDB Plugin does not work under WINE
 	
 VERSION
-	2.5pre
+	2.6
 
 AUTHOR
 	Benjamin von der Weiden <benjamin@von-der-weiden.com>, Leo Bogert <leo@bogert.de>
